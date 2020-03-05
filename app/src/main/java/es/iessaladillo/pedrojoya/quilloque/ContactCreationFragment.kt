@@ -25,13 +25,17 @@ class ContactCreationFragment: Fragment(R.layout.contact_creation_fragment){
         viewModel = ViewModel(application = Application())
         Log.d("List size", viewModel.allContacts.value?.size.toString())
         fabSave.setOnClickListener{
-            if (txtName.text.isEmpty()){
-                Toast.makeText(context, "Name cannot be empty.", Toast.LENGTH_LONG).show()
-            } else if (txtPhoneNumber.text.isEmpty()){
-                Toast.makeText(context, "Phone number cannot be empty.", Toast.LENGTH_LONG).show()
-            } else {
-                viewModel.insert(Contact(txtName.text.toString(), txtPhoneNumber.text.toString()))
-                view!!.findNavController().navigate(R.id.dialFragment)
+            when {
+                txtName.text.isEmpty() -> {
+                    Toast.makeText(context, getString(R.string.emptyName), Toast.LENGTH_LONG).show()
+                }
+                txtPhoneNumber.text.isEmpty() -> {
+                    Toast.makeText(context, getString(R.string.emptyNumber), Toast.LENGTH_LONG).show()
+                }
+                else -> {
+                    viewModel.insert(Contact(txtName.text.toString(), txtPhoneNumber.text.toString()))
+                    view!!.findNavController().navigate(R.id.dialFragment)
+                }
             }
         }
         //txtName.text = viewModel.searchQuery.value.toString()

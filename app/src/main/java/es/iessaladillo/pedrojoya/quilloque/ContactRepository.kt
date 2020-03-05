@@ -1,6 +1,7 @@
 package es.iessaladillo.pedrojoya.quilloque
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 
 class ContactRepository(application: Application) {
@@ -29,7 +30,7 @@ class ContactRepository(application: Application) {
     }
 
     fun insertCall(call: Call) {
-        contactDao.insert(call)
+        Log.d("Insert call", contactDao.insert(call).toString())
     }
 
     fun getAllCalls(): LiveData<List<Call>> {

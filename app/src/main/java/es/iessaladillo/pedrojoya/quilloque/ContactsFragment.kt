@@ -4,7 +4,7 @@ import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.dial_fragment.*
+import kotlinx.android.synthetic.main.contacts_fragment.*
 
 class ContactsFragment: Fragment(R.layout.contacts_fragment) {
 
@@ -17,7 +17,7 @@ class ContactsFragment: Fragment(R.layout.contacts_fragment) {
 
     private fun setupViews() {
         viewModel = ViewModel(application = Application())
-        lstSuggestions.adapter = ContactListAdapter()
+        lstContacts.adapter = ContactListAdapter()
         setupObserver()
     }
 

@@ -21,7 +21,7 @@ interface ContactDao {
     fun getAllCalls(): LiveData<List<Call>>
 
     @Insert
-    fun insertAll(vararg contacts: Contact)
+    fun insertAll(vararg contacts: Contact): List<Long>
 
     @Delete
     fun delete(contact: Contact)

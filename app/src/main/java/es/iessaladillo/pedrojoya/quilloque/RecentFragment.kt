@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.main_activity.*
+import kotlinx.android.synthetic.main.recent_fragment.*
 
 class RecentFragment: Fragment(R.layout.recent_fragment) {
 
@@ -17,6 +18,7 @@ class RecentFragment: Fragment(R.layout.recent_fragment) {
 
     private fun setupViews() {
         viewModel = ViewModel(application = Application())
+        lstCalls.adapter = CallListAdapter()
     }
 
     companion object {

@@ -72,7 +72,7 @@ class DialFragment: Fragment(R.layout.dial_fragment) {
             viewModel.deleteCharacter()
         }
         fabCall.setOnClickListener{
-            viewModel.insertCall(Call(txtPhoneNumber.text.toString(), null))
+            //viewModel.insertCall(Call(txtPhoneNumber.text.toString(), ""))
         }
         setupObserver()
     }
